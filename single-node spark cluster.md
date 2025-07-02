@@ -1,8 +1,7 @@
-
 # Spark Standalone Cluster Installation (Single Node)
 
-> **Machine IP**: `192.168.30.95`  
-> **Spark Version**: `4.0.0`  
+> **Machine IP**: `192.168.30.95`
+> **Spark Version**: `4.0.0`
 > **Cluster Mode**: Standalone on a single machine (both Master and Worker)
 
 ---
@@ -11,6 +10,7 @@
 
 - [Spark Downloads](https://spark.apache.org/downloads.html)
 - [Direct Spark TGZ Download](https://www.apache.org/dyn/closer.lua/spark/spark-4.0.0/spark-4.0.0-bin-hadoop3.tgz)
+- [Archive Versions](https://archive.apache.org/dist/spark)
 
 ---
 
@@ -44,11 +44,7 @@ pip3.9 install pyspark
 
 ### 4. Configure Environment Variables
 
-```bash
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-export SPARK_HOME=/opt/spark
-export PYSPARK_PYTHON=/usr/bin/python3.9
-```
+
 
 Add the following to `~/.bashrc`:
 
@@ -165,3 +161,4 @@ spark-submit --version
 | Driver (Client)  | ✅ (host)                 |
 | Driver (Cluster) | ✅ (worker)               |
 | Executors        | ✅ (worker)               |
+
