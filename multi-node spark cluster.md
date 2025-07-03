@@ -181,7 +181,6 @@ Start Spark Worker:
 
 ```bash
 start-worker.sh spark://192.168.30.95:7077
-jps
 ```
 
 Should see:
