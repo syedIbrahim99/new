@@ -1,7 +1,8 @@
+
 # Spark Standalone Cluster Installation (Single Node)
 
-> **Machine IP**: `192.168.30.95`
-> **Spark Version**: `4.0.0`
+> **Machine IP**: `192.168.30.95`  
+> **Spark Version**: `4.0.0`  
 > **Cluster Mode**: Standalone on a single machine (both Master and Worker)
 
 ---
@@ -44,8 +45,6 @@ pip3.9 install pyspark
 
 ### 4. Configure Environment Variables
 
-
-
 Add the following to `~/.bashrc`:
 
 ```bash
@@ -80,7 +79,25 @@ Edit `workers`:
 localhost
 ```
 
-### 6. Prepare Logs Directory
+### 6. Configure `spark-defaults.conf`
+
+```bash
+cd /opt/spark/conf
+cp spark-defaults.conf.template spark-defaults.conf
+```
+
+Edit `spark-defaults.conf` and add:
+
+```bash
+spark.master                     spark://192.168.30.95:7077
+spark.driver.memory              1g
+spark.driver.cores               1
+spark.executor.memory            1g
+spark.executor.cores             1
+spark.executor.instances         1
+```
+
+### 7. Prepare Logs Directory
 
 ```bash
 sudo mkdir -p /opt/spark/logs
@@ -119,7 +136,7 @@ http://192.168.30.95:8080
 spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode client /opt/spark/examples/jars/spark-jar.jar 10
 ```
 
-- Driver: Host machine (95)
+- Driver: Host machine (95)  
 - Executors: Worker (95)
 
 ### JAR - Cluster Mode
@@ -128,7 +145,7 @@ spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.
 spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode cluster /opt/spark/examples/jars/spark-jar.jar 10
 ```
 
-- Driver: Worker (95)
+- Driver: Worker (95)  
 - Executors: Worker (95)
 
 ### PySpark - Client Mode
@@ -137,10 +154,10 @@ spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.
 spark-submit --master spark://192.168.30.95:7077 --deploy-mode client /home/syed/spark-app.py
 ```
 
-- Driver: Host machine (95)
+- Driver: Host machine (95)  
 - Executors: Worker (95)
 
-> Cluster mode is **not supported** for PySpark in standalone.
+> ⚠️ Cluster mode is **not supported** for PySpark in standalone.
 
 ---
 
@@ -161,4 +178,3 @@ spark-submit --version
 | Driver (Client)  | ✅ (host)                 |
 | Driver (Cluster) | ✅ (worker)               |
 | Executors        | ✅ (worker)               |
-
