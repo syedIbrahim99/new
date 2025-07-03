@@ -202,7 +202,7 @@ Should see:
 ### JAR - Client Mode
 
 ```bash
-spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode client /opt/spark/examples/jars/spark-examples_2.13-4.0.0.jar 10
+spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode client /opt/spark/examples/jars/spark-jar.jar 10
 ```
 
 - Driver runs on Machine A (Master).
@@ -211,7 +211,7 @@ spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.
 ### JAR - Cluster Mode
 
 ```bash
-spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode cluster /opt/spark/examples/jars/spark-examples_2.13-4.0.0.jar 10
+spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode cluster /opt/spark/examples/jars/spark-jar.jar 10
 ```
 
 - Driver starts on Machine B (Worker).
@@ -232,7 +232,7 @@ spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.
 ### Client Mode
 
 ```bash
-spark-submit --master spark://192.168.30.95:7077 --deploy-mode client /home/syed/huge_job.py
+spark-submit --master spark://192.168.30.95:7077 --deploy-mode client /home/syed/pyspark.py
 ```
 
 - Driver runs on Machine A.
@@ -240,7 +240,7 @@ spark-submit --master spark://192.168.30.95:7077 --deploy-mode client /home/syed
 ### Cluster Mode
 
 ```bash
-spark-submit --master spark://192.168.30.95:7077 --deploy-mode cluster /home/syed/huge_job.py
+spark-submit --master spark://192.168.30.95:7077 --deploy-mode cluster /home/syed/pyspark.py
 ```
 
 - **Not supported** in Spark Standalone for Python apps.
