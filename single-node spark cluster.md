@@ -116,7 +116,7 @@ http://192.168.30.95:8080
 ### JAR - Client Mode
 
 ```bash
-spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode client /opt/spark/examples/jars/spark-examples_2.13-4.0.0.jar 10
+spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode client /opt/spark/examples/jars/spark-jar.jar 10
 ```
 
 - Driver: Host machine (95)
@@ -125,7 +125,7 @@ spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.
 ### JAR - Cluster Mode
 
 ```bash
-spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode cluster /opt/spark/examples/jars/spark-examples_2.13-4.0.0.jar 10
+spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.30.95:7077 --deploy-mode cluster /opt/spark/examples/jars/spark-jar.jar 10
 ```
 
 - Driver: Worker (95)
@@ -134,7 +134,7 @@ spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.
 ### PySpark - Client Mode
 
 ```bash
-spark-submit --master spark://192.168.30.95:7077 --deploy-mode client /home/syed/huge_job.py
+spark-submit --master spark://192.168.30.95:7077 --deploy-mode client /home/syed/spark-app.py
 ```
 
 - Driver: Host machine (95)
