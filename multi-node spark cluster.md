@@ -88,7 +88,6 @@ Start Spark Master:
 
 ```bash
 start-master.sh
-jps
 ```
 
 Should see:
